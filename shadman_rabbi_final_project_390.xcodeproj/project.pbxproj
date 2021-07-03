@@ -14,6 +14,10 @@
 		E33C4D20268F603D00E725E8 /* shadman_rabbi_final_project_390.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E33C4D1E268F603D00E725E8 /* shadman_rabbi_final_project_390.xcdatamodeld */; };
 		E33C4D22268F603E00E725E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E33C4D21268F603E00E725E8 /* Assets.xcassets */; };
 		E33C4D25268F603E00E725E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E33C4D23268F603E00E725E8 /* LaunchScreen.storyboard */; };
+		E33C4D2E268F65AA00E725E8 /* Assets+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C4D2C268F65AA00E725E8 /* Assets+CoreDataClass.swift */; };
+		E33C4D2F268F65AA00E725E8 /* Assets+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C4D2D268F65AA00E725E8 /* Assets+CoreDataProperties.swift */; };
+		E33C4D32268F760200E725E8 /* BarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C4D31268F760200E725E8 /* BarcodeViewController.swift */; };
+		E33C4D34269020A600E725E8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33C4D33269020A600E725E8 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		E33C4D21268F603E00E725E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E33C4D24268F603E00E725E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E33C4D26268F603E00E725E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E33C4D2C268F65AA00E725E8 /* Assets+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assets+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E33C4D2D268F65AA00E725E8 /* Assets+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assets+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E33C4D31268F760200E725E8 /* BarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeViewController.swift; sourceTree = "<group>"; };
+		E33C4D33269020A600E725E8 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +66,28 @@
 		E33C4D14268F603D00E725E8 /* shadman_rabbi_final_project_390 */ = {
 			isa = PBXGroup;
 			children = (
+				E33C4D30268F65BD00E725E8 /* Assets */,
 				E33C4D15268F603D00E725E8 /* AppDelegate.swift */,
 				E33C4D17268F603D00E725E8 /* SceneDelegate.swift */,
 				E33C4D19268F603D00E725E8 /* ViewController.swift */,
+				E33C4D31268F760200E725E8 /* BarcodeViewController.swift */,
 				E33C4D1B268F603D00E725E8 /* Main.storyboard */,
 				E33C4D21268F603E00E725E8 /* Assets.xcassets */,
 				E33C4D23268F603E00E725E8 /* LaunchScreen.storyboard */,
 				E33C4D26268F603E00E725E8 /* Info.plist */,
 				E33C4D1E268F603D00E725E8 /* shadman_rabbi_final_project_390.xcdatamodeld */,
+				E33C4D33269020A600E725E8 /* SettingViewController.swift */,
 			);
 			path = shadman_rabbi_final_project_390;
+			sourceTree = "<group>";
+		};
+		E33C4D30268F65BD00E725E8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E33C4D2C268F65AA00E725E8 /* Assets+CoreDataClass.swift */,
+				E33C4D2D268F65AA00E725E8 /* Assets+CoreDataProperties.swift */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +163,11 @@
 				E33C4D1A268F603D00E725E8 /* ViewController.swift in Sources */,
 				E33C4D20268F603D00E725E8 /* shadman_rabbi_final_project_390.xcdatamodeld in Sources */,
 				E33C4D16268F603D00E725E8 /* AppDelegate.swift in Sources */,
+				E33C4D34269020A600E725E8 /* SettingViewController.swift in Sources */,
 				E33C4D18268F603D00E725E8 /* SceneDelegate.swift in Sources */,
+				E33C4D2F268F65AA00E725E8 /* Assets+CoreDataProperties.swift in Sources */,
+				E33C4D2E268F65AA00E725E8 /* Assets+CoreDataClass.swift in Sources */,
+				E33C4D32268F760200E725E8 /* BarcodeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
