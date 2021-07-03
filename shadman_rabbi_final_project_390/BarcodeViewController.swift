@@ -101,11 +101,19 @@ class BarcodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
           for barcode in barcodes {
             guard
               // TODO: Check for QR Code symbology and confidence score
-              let potentialQRCode = barcode as? VNBarcodeObservation,
-              potentialQRCode.symbology == .QR,
-              potentialQRCode.confidence > 0.9
-              else { return }
-
+              let potentialQRCode = barcode as? VNBarcodeObservation
+//              potentialQRCode.symbology == .QR,
+//              potentialQRCode.confidence > 0.9
+                else { return }
+            
+            print(potentialQRCode.symbology.rawValue)
+            print(potentialQRCode.payloadStringValue ?? "")
+            
+            showAlert(
+                    withTitle: potentialQRCode.symbology.rawValue,
+                    // TODO: Check the confidence score
+                    message: potentialQRCode.payloadStringValue ?? "" )
+            
             
           }
         }
@@ -115,7 +123,20 @@ class BarcodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     /**
             Observation Handler
      */
-    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+      // TODO: Live Vision
+      guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+
+      let imageRequestHandler = VNImageRequestHandler(
+        cvPixelBuffer: pixelBuffer,
+        orientation: .right)
+
+      do {
+        try imageRequestHandler.perform([detectBarcodeRequest])
+      } catch {
+        print(error)
+      }
+    }
     
     /**
      check permission
