@@ -3,13 +3,15 @@
 //  shadman_rabbi_final_project_390
 //
 //  Created by Shadman UR Rabbi on 7/2/21.
-//
+// Inspired by: www.raywenderlich.com/12663654-vision-framework-tutorial-for-ios-scanning-barcodes
 
 import UIKit
 import Vision
 import AVFoundation
 
 class BarcodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate{
+    var ittag = ""
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var camerafeedback = AVCaptureVideoPreviewLayer()
@@ -106,20 +108,33 @@ class BarcodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 //              potentialQRCode.confidence > 0.9
                 else { return }
             
-            print(potentialQRCode.symbology.rawValue)
-            print(potentialQRCode.payloadStringValue ?? "")
+           
+            let tag = potentialQRCode.payloadStringValue ?? ""
             
             showAlert(
                     withTitle: potentialQRCode.symbology.rawValue,
                     // TODO: Check the confidence score
                     message: potentialQRCode.payloadStringValue ?? "" )
             
+            // move from view to view
+            
+            self.ittag = tag
+            performSegue(withIdentifier: "takeinput", sender: self)
+            
             
           }
         }
       }
     }
-
+    
+    /**
+            prepare segue
+     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc  = segue.destination as! InputViewController
+        vc.tagfinal = ittag
+    }
+    
     /**
             Observation Handler
      */
@@ -171,6 +186,23 @@ class BarcodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
       showAlert(
         withTitle: "Camera Permissions",
         message: "Please open Settings and grant permission for this app to use your camera.")
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if (captureSession.isRunning == false) {
+            captureSession.startRunning()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if(captureSession.isRunning == true){
+            captureSession.stopRunning()
+        }
     }
 
 }

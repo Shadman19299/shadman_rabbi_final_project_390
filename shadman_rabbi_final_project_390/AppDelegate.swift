@@ -33,8 +33,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Core Data stack
+    func createAssets(ittag: String, flocation:String, slocation:String, devictype:String, datereg:Date) {
+        //let newasset = Assets(context: context)
+        let newasset =  Assets(context: persistentContainer.viewContext)
+        newasset.ittag = ittag
+        newasset.foundlocation = flocation
+        newasset.supposedlocation = slocation
+        newasset.devicetype = devictype
+        newasset.dateregisterd = datereg
+        //print(newasset)
+        self.saveContext()
+    }
     
+    func fetchAsset() -> [Assets] {
+        var assetlists = [Assets]()
+        let fetchreq = NSFetchRequest<Assets>(entityName: "Assets")
+        
+        do {
+            assetlists = try persistentContainer.viewContext.fetch(fetchreq)
+        } catch  {
+            print("The is the error here, O Allah help")
+            print(error)
+        }
+        return assetlists
+    }
+    
+    func clearAllCoreData() {
+        let entities = self.persistentContainer.managedObjectModel.entities
+        entities.compactMap({ $0.name }).forEach(clearDeepObjectEntity)
+    }
+    
+    private func clearDeepObjectEntity(_ entity: String) {
+        let context = self.persistentContainer.viewContext
 
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Assets")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch {
+            print("The is the error here, O Allah help")
+            print ("error")
+        }
+    }
+    
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
