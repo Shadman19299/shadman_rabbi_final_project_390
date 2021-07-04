@@ -1,7 +1,9 @@
 # shadman_rabbi_final_project_390
-
-#This app will be used to keep track of the Assets for an Agency. 
-#During Annual Inventory checks requires a lot of Pages to print to keep track of the inventory. This app can Help people to do that. 
+@settings {
+  font-size: 100;
+}
+This app will be used to keep track of the Assets for an Agency. 
+During Annual Inventory checks requires a lot of Pages to print to keep track of the inventory. This app can Help people to do that. 
 
 ![IMG_2289](https://user-images.githubusercontent.com/30331470/124396416-64abeb80-dcd7-11eb-8e91-131980cc7ee7.PNG)
 
